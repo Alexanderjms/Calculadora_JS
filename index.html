@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="background">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-2xl w-80">
+        <div class="bg-black text-white text-right p-4 text-2xl font-mono rounded">
+            <span id="display">0</span>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 mt-4">
+            <button class="bg-gray-900 rounded btn font-mono text-[#FF0033]">C</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">()</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">%</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono bg-red-800 rounded">/</button>
+
+            <button class="bg-gray-900 rounded btn text-white font-mono">7</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">8</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">9</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono bg-purple-600 rounded">*</button>
+
+            <button class="bg-gray-900 rounded btn text-white font-mono">4</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">5</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">6</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono bg-green-600 rounded">-</button>
+
+            <button class="bg-gray-900 rounded btn text-white font-mono">1</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">2</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">3</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono bg-orange-600 rounded">+</button>
+
+            <button class="bg-gray-900 rounded btn text-white font-mono">+/-</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">0</button>
+            <button class="bg-gray-900 rounded btn text-white font-mono">.</button>
+            <button class="btn text-white font-mono bg-blue-600 rounded">=</button>
+
+        </div>
+       
+    </div>
+        
+    
+</body>
+<script src="index.js"></script>
+</html>

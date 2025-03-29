@@ -1,0 +1,11 @@
+.background {
+    background: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
