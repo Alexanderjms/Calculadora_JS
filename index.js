@@ -7,60 +7,71 @@ document.addEventListener("DOMContentLoaded", () => {
     let operator = "";
     let firstValue = "";
 
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            let value = button.textContent;
-
-            if (!isNaN(value) || value === ".") {
-                currentInput += value;
-                display.textContent = firstValue + " " + operator + " " + currentInput;
-            }
-
-            else if (value === "C") {
-                currentInput = "";
-                operator = "";
-                firstValue = "";
+    function processInput(value) {
+        if (value === "C") {
+            currentInput = "";
+            operator = "";
+            firstValue = "";
+            display.textContent = "0";
+        } else if (value === "Del") {
+            // Elimina el último carácter de currentInput
+            currentInput = currentInput.slice(0, -1);
+            display.textContent = currentInput || "0";
+        } else if (value === "=") {
+            if (currentInput.trim() === "") {
                 display.textContent = "0";
-            }
-            
-            else if (value === "=") {
+            } else {
                 try {
                     let result = eval(currentInput);
-                    display.textContent = result;
+                    display.textContent = Number(result).toLocaleString('en-US');
                     currentInput = result.toString();
                 } catch (error) {
                     display.textContent = "Error";
                 }
             }
-
-            else if (value === "()") {
-                // Contar paréntesis abiertos y cerrados en currentInput
-                let openCount = (currentInput.match(/\(/g) || []).length;
-                let closeCount = (currentInput.match(/\)/g) || []).length;
-                
-                if (openCount === closeCount) {
-                    currentInput += "(";
-                } else {
-                    currentInput += ")";
-                }
-                display.textContent = firstValue + " " + operator + " " + currentInput;
+        } else if (value === "()") {
+            // Cuenta paréntesis para determinar si agregar apertura o cierre
+            let openCount = (currentInput.match(/\(/g) || []).length;
+            let closeCount = (currentInput.match(/\)/g) || []).length;
+            if (openCount === closeCount) {
+                currentInput += "(";
+            } else {
+                currentInput += ")";
             }
-            
-
-            else if (currentInput !== "" && !currentInput.endsWith(" ")) {
-                currentInput += ` ${value.replace("x", "*").replace("÷", "/")} `;
+            display.textContent = currentInput;
+        } else if (["+", "-", "*", "/"].includes(value)) {
+            if (currentInput !== "" && !currentInput.endsWith(" ")) {
+                currentInput += ` ${value} `;
                 display.textContent = currentInput;
             }
+        } else if (!isNaN(value) || value === ".") {
+            currentInput += value;
+            display.textContent = currentInput;
+        }
+    }
 
-            else {
-                if (currentInput !== ""){
-                    firstValue = currentInput;
-                    operator = value.replace("x", "*").replace("÷", "/");
-                    currentInput = "";
-                    display.textContent = firstValue + " " + operator;
-                }
-            }
-           
+    // Manejador de eventos de teclado
+    document.addEventListener("keydown", (event) => {
+        const key = event.key;
+        if (!isNaN(key) || key === ".") {
+            processInput(key);
+        } else if (key === "Enter") {
+            processInput("=");
+        } else if (key === "Escape") {
+            processInput("C");
+        } else if (["+", "-", "*", "/"].includes(key)) {
+            processInput(key);
+        } else if (key === "(" || key === ")") {
+            processInput("()");
+        } else if (key === "Backspace") {
+            processInput("Del");
+        }
+    });
+
+    // Manejador de clicks en botones
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            processInput(button.textContent);
         });
     });
 });

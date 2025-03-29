@@ -9,3 +9,18 @@
     align-items: center;
 }
 
+.box-shadow {
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.185);
+    border-radius: 10px;
+    text-align: center;
+}	
+
+button {
+    transition: box-shadow 0.3s ease, transform 0.2s ease; /* Suaviza la sombra y el movimiento */
+    cursor: pointer; /* Cambia el cursor a una mano */
+}
+
+button:hover {
+    transform: translateY(-3px); /* Eleva ligeramente el botón */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Agrega una sombra más pronunciada */
+}
