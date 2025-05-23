@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
             firstValue = "";
             display.textContent = "0";
         } else if (value === "Del") {
-            // Elimina el último carácter de currentInput
             currentInput = currentInput.slice(0, -1);
             display.textContent = currentInput || "0";
         } else if (value === "=") {
@@ -30,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         } else if (value === "()") {
-            // Cuenta paréntesis para determinar si agregar apertura o cierre
             let openCount = (currentInput.match(/\(/g) || []).length;
             let closeCount = (currentInput.match(/\)/g) || []).length;
             if (openCount === closeCount) {
@@ -50,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Manejador de eventos de teclado
     document.addEventListener("keydown", (event) => {
         const key = event.key;
         if (!isNaN(key) || key === ".") {
@@ -68,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Manejador de clicks en botones
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
             processInput(button.textContent);

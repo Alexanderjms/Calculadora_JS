@@ -16,11 +16,11 @@
 }	
 
 button {
-    transition: box-shadow 0.3s ease, transform 0.2s ease; /* Suaviza la sombra y el movimiento */
-    cursor: pointer; /* Cambia el cursor a una mano */
+    transition: box-shadow 0.3s ease, transform 0.2s ease; 
+    cursor: pointer;
 }
 
 button:hover {
-    transform: translateY(-3px); /* Eleva ligeramente el botón */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Agrega una sombra más pronunciada */
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
