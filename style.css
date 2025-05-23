@@ -24,3 +24,54 @@ button:hover {
     transform: translateY(-3px); 
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 600px) {
+    .background {
+        justify-content: center;
+        align-items: center; 
+        padding-top: 20px;
+    }
+
+    .box-shadow {
+        width: 90%; 
+        max-width: 350px; 
+        margin-top: 20px;
+        height: auto; 
+    }
+
+    .grid {
+        gap: 1.5px; 
+        height: auto; 
+    }
+
+    button {
+        font-size: 0.8rem; 
+        padding: 12px 6px; 
+    }
+
+    #display {
+        font-size: 1.4rem; 
+        padding: 10px; 
+    }
+}
+
+@media (max-width: 400px) {
+    .box-shadow {
+        width: 95%;
+        max-width: 280px; 
+        margin-top: 10px;
+        height: auto; 
+    }
+    button {
+        font-size: 0.7rem; 
+        padding: 10px 5px; 
+    }
+    #display {
+        font-size: 1.15rem; 
+        padding: 8px; 
+    }
+    .grid {
+        gap: 1px; 
+        height: auto; 
+    }
+}
